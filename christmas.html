@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<title>Merry Christmas ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Prompt:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    background: radial-gradient(circle at top, #0b1d3a, #020617);
+    overflow: hidden;
+    font-family: 'Prompt', sans-serif;
+    color: white;
+}
+
+/* ❄️ หิมะ */
+.snow {
+    position: absolute;
+    top: -10px;
+    width: 6px;
+    height: 6px;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.8;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    to { transform: translateY(110vh); }
+}
+
+/* 🌌 กล่องหลัก */
+.container {
+    height: 100%;
+    max-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 16px;
+    z-index: 2;
+}
+
+/* 🌲 ต้นคริสต์ */
+.top-tree {
+    width: 200px;
+    filter: drop-shadow(0 8px 14px rgba(0,0,0,0.6));
+}
+
+/* 🎄 หัวข้อ */
+h1 {
+    font-family: 'Pacifico', cursive;
+    font-size: clamp(40px, 6vw, 54px);
+    line-height: 1.1;
+
+    text-shadow:
+        -3px -3px 0 #000,
+        3px -3px 0 #000,
+        -3px 3px 0 #000,
+        3px 3px 0 #000,
+        0 8px 15px rgba(0,0,0,0.6);
+
+    margin-bottom: 24px; /* 👈 เพิ่มตรงนี้ */
+}
+
+
+/* 🎁 ปุ่ม */
+button {
+    padding: 12px 34px;
+    font-size: 17px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    letter-spacing: 0.8px;
+
+    border: 1.5px solid rgba(255,255,255,0.45);
+    border-radius: 999px;
+
+    background: rgba(255,255,255,0.08);
+    color: #ffffff;
+
+    backdrop-filter: blur(6px);
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background: rgba(255,255,255,0.18);
+    transform: translateY(-2px);
+}
+
+
+/* 💌 การ์ด (อยู่ใน flow ปกติ) */
+.card {
+    display: none;
+    background: rgba(255,255,255,0.14);
+    padding: 18px;
+    border-radius: 22px;
+    width: min(90%, 320px);
+    backdrop-filter: blur(8px);
+    animation: slideUp 0.6s ease;
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.card img {
+    width: 100%;
+    border-radius: 16px;
+    margin-bottom: 12px;
+    box-shadow: 0 0 26px rgba(255,182,193,0.6);
+}
+
+.card p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* ❤️ หัวใจ */
+.heart {
+    position: absolute;
+    color: #ff4d6d;
+    animation: float 4s linear infinite;
+}
+
+@keyframes float {
+    to {
+        transform: translateY(-120vh);
+        opacity: 0;
+    }
+}
+
+/* 🎄 เส้นคริสต์มาสห้อย */
+.string {
+    position: absolute;
+    top: -120px;
+    width: 2px;
+    height: 120px;
+    background: linear-gradient(
+        to bottom,
+        rgba(255,255,255,0),
+        rgba(255,215,0,0.9),
+        rgba(255,255,255,0)
+    );
+    animation: drop 0.8s ease-out forwards, sway 3s ease-in-out infinite;
+    transform-origin: top;
+    z-index: 1;
+}
+
+/* ปลายเส้นเป็นไฟ */
+.string::after {
+    content: "";
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 10px;
+    height: 10px;
+    background: radial-gradient(circle, #ffd166, #ffb703);
+    border-radius: 50%;
+    box-shadow: 0 0 12px rgba(255,215,0,0.9);
+}
+
+/* เส้นเลื่อนลง */
+@keyframes drop {
+    to {
+        top: 0;
+    }
+}
+
+/* แกว่งเบา ๆ */
+@keyframes sway {
+    0%   { transform: rotate(-2deg); }
+    50%  { transform: rotate(2deg); }
+    100% { transform: rotate(-2deg); }
+}
+
+.spark-line {
+    position: absolute;
+    top: -100px;
+    width: 2px;
+    height: 120px;
+    background: linear-gradient(
+        to bottom,
+        transparent,
+        #ffd166,
+        #ffb703,
+        transparent
+    );
+    opacity: 0.9;
+    animation: dropLine linear forwards;
+}
+
+@keyframes dropLine {
+    to {
+        transform: translateY(120vh);
+        opacity: 0;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- 🌲 -->
+    <img src="tree.png" class="top-tree">
+
+    <!-- 🎄 -->
+    <h1>Merry Christmas</h1>
+
+    <!-- 🎁 -->
+    <button onclick="openGift()">Open Gift 🎁</button>
+
+    <!-- 💌 โผล่ต่อด้านล่าง -->
+    <div class="card" id="card">
+        <img src="love.png">
+        <p>
+            I hope your Christmas is merry and bright, and your New Year full of love 🎄✨
+        </p>
+    </div>
+
+</div>
+
+<script>
+/* ❄️ หิมะ */
+for (let i = 0; i < 70; i++) {
+    const s = document.createElement("div");
+    s.className = "snow";
+    s.style.left = Math.random() * 100 + "vw";
+    s.style.animationDuration = 3 + Math.random() * 5 + "s";
+    document.body.appendChild(s);
+}
+
+/* 🎁 เปิดของขวัญ */
+function openGift() {
+    document.getElementById("card").style.display = "block";
+    createHearts();
+    createStrings();   // 🎄 เส้นคริสต์มาส
+}
+
+/* ❤️ หัวใจ */
+function createHearts() {
+    for (let i = 0; i < 40; i++) {   // 👈 จำนวนหัวใจชุดแรก
+        setTimeout(() => {
+            spawnHeart();
+        }, i * 80); // 👈 ถี่ขึ้น (เดิม ~300)
+    }
+
+    // หัวใจลอยต่อเนื่อง
+    setInterval(() => {
+        spawnHeart();
+        spawnHeart(); // 👈 ปล่อยทีละ 2 ดวง
+    }, 180);
+}
+
+/* สร้างหัวใจ 1 ดวง */
+function spawnHeart() {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "❤️";
+
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.bottom = "-20px";
+    heart.style.fontSize = 14 + Math.random() * 28 + "px";
+    heart.style.opacity = 0.6 + Math.random() * 0.4;
+    heart.style.animationDuration = 3 + Math.random() * 3 + "s";
+
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 6000);
+}
+
+
+function createSparkLines() {
+    for (let i = 0; i < 80; i++) {   // 👈 เพิ่มจำนวน (เดิมเช่น 30-40)
+        setTimeout(() => {
+            spawnLine();
+        }, i * 25); // 👈 ถี่มาก เปิดปุ๊บพุ่งเลย
+    }
+}
+
+/* สร้างเส้น 1 เส้น */
+function spawnLine() {
+    const line = document.createElement("div");
+    line.className = "spark-line";
+
+    line.style.left = Math.random() * 100 + "vw";
+    line.style.height = 80 + Math.random() * 160 + "px";
+    line.style.animationDuration = 1.5 + Math.random() * 2 + "s";
+    line.style.opacity = 0.5 + Math.random() * 0.5;
+
+    document.body.appendChild(line);
+    setTimeout(() => line.remove(), 4000);
+}
+
+function openGift() {
+    document.getElementById("card").style.display = "block";
+    createHearts();       // ❤️ หัวใจ
+    createSparkLines();   // ✨ เส้นคริสต์มาส
+}
+
+
+</script>
+
+</body>
+</html>
