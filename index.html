@@ -160,10 +160,42 @@ button:hover {
         opacity: 0;
     }
 }
+
+/* 🎄 พวงหรีดคริสต์มาส */
+.wreath {
+    position: absolute;
+    top: 0.5px;
+    width: 150px;
+    z-index: 3;
+    filter: drop-shadow(0 6px 10px rgba(0,0,0,0.6));
+}
+
+.wreath.left {
+    left: 20px;
+}
+
+.wreath.right {
+    right: 20px;
+}
+
+/* 📱 มือถือ – ลดขนาด */
+@media (max-width: 600px) {
+    .wreath {
+        width: 80px;
+        top: 14px;
+    }
+}
+
 </style>
 </head>
 
 <body>
+
+<!-- 🎄 พวงหรีดซ้ายบน -->
+<img src="wreath.png" class="wreath left" alt="Christmas Wreath">
+
+<!-- 🎄 พวงหรีดขวาบน -->
+<img src="wreath.png" class="wreath right" alt="Christmas Wreath">
 
 <div class="container">
     <img src="tree.png" class="top-tree" alt="tree">
