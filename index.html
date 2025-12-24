@@ -56,6 +56,8 @@ body {
 .top-tree {
     width: clamp(120px, 40vw, 200px);
     filter: drop-shadow(0 8px 14px rgba(0,0,0,0.6));
+    margin-top: -60px;   /* ขยับขึ้นสูง */
+    margin-bottom: 10px; /* ห่างหัวข้อ Merry Christmas */
 }
 
 /* 🎄 หัวข้อ */
@@ -113,7 +115,7 @@ button:hover {
 
 .card img {
     width: 100%;
-    max-height: 220px;
+    max-height: clamp(180px, 40vw, 260px); /* ขนาดรูปปรับตามมือถือและคอม */
     object-fit: cover;
     border-radius: 16px;
     margin-bottom: 10px;
@@ -186,10 +188,77 @@ button:hover {
     }
 }
 
+/* 🎁 กรอบรูปซ้าย-ขวา */
+.side-image-frame {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%) scale(0);
+    width: 240px;
+    aspect-ratio: 1 / 1;
+
+    background: rgba(255,255,255,0.3); /* โปร่งนุ่ม */
+    border-radius: 26px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 10px solid rgba(255,255,255,0.3);
+    box-shadow: 0 12px 20px rgba(255,255,255,0.3);
+
+    transition: transform 0.6s ease, opacity 0.6s ease;
+    opacity: 0;
+    z-index: 2;
+}
+
+.side-image-frame.left {
+    left: 5%;
+}
+
+.side-image-frame.right {
+    right: 5%;
+}
+
+/* รูปด้านใน */
+.side-image-frame img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    filter: drop-shadow(0 6px 8px rgba(0,0,0,0.35));
+}
+
+    @media (max-width: 600px) {
+.side-image-frame {
+        width: 35vw; /* ขนาดพอดีมือถือ */
+    }
+}
+
+/* แสดงตอนเด้ง */
+.side-image-frame.show {
+    transform: translateY(-50%) scale(1);
+    opacity: 1;
+    animation: bounce 0.6s forwards;
+}
+
+@keyframes bounce {
+    0% { transform: translateY(-50%) scale(0); }
+    60% { transform: translateY(-50%) scale(1.2); }
+    100% { transform: translateY(-50%) scale(1); }
+}
 </style>
 </head>
 
 <body>
+
+<!-- 🎁 กรอบรูปซ้าย -->
+<div class="side-image-frame left">
+    <img src="left.jfif" alt="Left Image">
+</div>
+
+<!-- 🎁 กรอบรูปขวา -->
+<div class="side-image-frame right">
+    <img src="right.jfif" alt="Right Image">
+</div>
 
 <!-- 🎄 พวงหรีดซ้ายบน -->
 <img src="wreath.png" class="wreath left" alt="Christmas Wreath">
@@ -223,8 +292,12 @@ for (let i = 0; i < 70; i++) {
 /* 🎁 เปิดของขวัญ */
 function openGift() {
     document.getElementById("card").style.display = "block";
-    createHearts();
-    createSparkLines();
+    createHearts();       // ❤️ หัวใจ
+    createSparkLines();   // ✨ เส้นคริสต์มาส
+
+    // แสดงกรอบซ้าย-ขวา
+    document.querySelector('.side-image-frame.left').classList.add('show');
+    document.querySelector('.side-image-frame.right').classList.add('show');
 }
 
 /* ❤️ หัวใจ */
