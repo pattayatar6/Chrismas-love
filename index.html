@@ -8,11 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Prompt:wght@300;400&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
 
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             min-height: 100vh;
@@ -34,9 +30,7 @@
             animation: fall linear infinite;
         }
 
-        @keyframes fall {
-            to { transform: translateY(110vh); }
-        }
+        @keyframes fall { to { transform: translateY(110vh); } }
 
         /* 🌌 กล่องหลัก */
         .container {
@@ -55,8 +49,8 @@
         .top-tree {
             width: clamp(120px, 40vw, 200px);
             filter: drop-shadow(0 8px 14px rgba(0,0,0,0.6));
-            margin-top: -60px;   /* ขยับขึ้นสูง */
-            margin-bottom: 10px; /* ห่างหัวข้อ Merry Christmas */
+            margin-top: -60px;
+            margin-bottom: 10px;
         }
 
         /* 🎄 หัวข้อ */
@@ -80,12 +74,10 @@
             font-family: 'Playfair Display', serif;
             font-size: 18px;
             letter-spacing: 0.8px;
-
             border: 1.5px solid rgba(255,255,255,0.45);
             border-radius: 999px;
             background: rgba(255,255,255,0.08);
             color: #fff;
-
             backdrop-filter: blur(6px);
             cursor: pointer;
             transition: all 0.3s ease;
@@ -133,28 +125,18 @@
             animation: float linear infinite;
         }
 
-        @keyframes float {
-            to { transform: translateY(-120vh); opacity: 0; }
-        }
+        @keyframes float { to { transform: translateY(-120vh); opacity: 0; } }
 
         /* ✨ เส้นคริสต์มาส */
         .spark-line {
             position: absolute;
             top: -120px;
             width: 2px;
-            background: linear-gradient(
-                to bottom,
-                transparent,
-                #ffd166,
-                #ffb703,
-                transparent
-            );
+            background: linear-gradient(to bottom, transparent, #ffd166, #ffb703, transparent);
             animation: dropLine linear forwards;
         }
 
-        @keyframes dropLine {
-            to { transform: translateY(120vh); opacity: 0; }
-        }
+        @keyframes dropLine { to { transform: translateY(120vh); opacity: 0; } }
 
         /* 🎄 พวงหรีดคริสต์มาส */
         .wreath {
@@ -168,76 +150,14 @@
         .wreath.left { left: 20px; }
         .wreath.right { right: 20px; }
 
-        /* 📱 มือถือ – ลดขนาด */
         @media (max-width: 600px) {
-            .wreath {
-                width: 80px;
-                top: 14px;
-            }
+            .wreath { width: 80px; top: 14px; }
         }
 
-        /* 🎁 กรอบรูปซ้าย-ขวา */
-        .side-image-frame {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%) scale(0);
-            width: 240px;
-            aspect-ratio: 1 / 1;
-            background: rgba(255,255,255,0.3);
-            border-radius: 26px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 10px solid rgba(255,255,255,0.3);
-            box-shadow: 0 12px 20px rgba(255,255,255,0.3);
-            transition: transform 0.6s ease, opacity 0.6s ease;
-            opacity: 0;
-            z-index: 2;
-        }
-
-        .side-image-frame.left { left: 5%; }
-        .side-image-frame.right { right: 5%; }
-
-        .side-image-frame img {
-            width: 100%;
-            height: auto;
-            border-radius: 12px;
-            filter: drop-shadow(0 6px 8px rgba(0,0,0,0.35));
-        }
-
-        /* 📱 มือถือ */
-        @media (max-width: 600px) {
-            .side-image-frame {
-                width: 140px;
-            }
-        }
-
-        /* แสดงตอนเด้ง */
-        .side-image-frame.show {
-            transform: translateY(-50%) scale(1);
-            opacity: 1;
-            animation: bounce 0.6s forwards;
-        }
-
-        @keyframes bounce {
-            0% { transform: translateY(-50%) scale(0); }
-            60% { transform: translateY(-50%) scale(1.2); }
-            100% { transform: translateY(-50%) scale(1); }
-        }
     </style>
 </head>
 
 <body>
-
-    <!-- 🎁 กรอบรูปซ้าย -->
-    <div class="side-image-frame left">
-        <img src="left.jfif" alt="Left Image">
-    </div>
-
-    <!-- 🎁 กรอบรูปขวา -->
-    <div class="side-image-frame right">
-        <img src="right.jfif" alt="Right Image">
-    </div>
 
     <!-- 🎄 พวงหรีดซ้ายบน -->
     <img src="wreath.png" class="wreath left" alt="Christmas Wreath">
@@ -250,6 +170,7 @@
         <h1>Merry Christmas</h1>
         <button onclick="openGift()">Open Gift 🎁</button>
 
+        <!-- 💌 การ์ดรูปเดียว -->
         <div class="card" id="card">
             <img src="love.png" alt="love">
             <p>
@@ -271,24 +192,14 @@
         /* 🎁 เปิดของขวัญ */
         function openGift() {
             document.getElementById("card").style.display = "block";
-            createHearts();       // ❤️ หัวใจ
-            createSparkLines();   // ✨ เส้นคริสต์มาส
-
-            // แสดงกรอบซ้าย-ขวา
-            document.querySelector('.side-image-frame.left').classList.add('show');
-            document.querySelector('.side-image-frame.right').classList.add('show');
+            createHearts();
+            createSparkLines();
         }
 
         /* ❤️ หัวใจ */
         function createHearts() {
-            for (let i = 0; i < 40; i++) {
-                setTimeout(spawnHeart, i * 80);
-            }
-
-            setInterval(() => {
-                spawnHeart();
-                spawnHeart();
-            }, 180);
+            for (let i = 0; i < 40; i++) { setTimeout(spawnHeart, i * 80); }
+            setInterval(() => { spawnHeart(); spawnHeart(); }, 180);
         }
 
         function spawnHeart() {
@@ -306,9 +217,7 @@
 
         /* ✨ เส้นคริสต์มาส */
         function createSparkLines() {
-            for (let i = 0; i < 80; i++) {
-                setTimeout(spawnLine, i * 25);
-            }
+            for (let i = 0; i < 80; i++) { setTimeout(spawnLine, i * 25); }
         }
 
         function spawnLine() {
